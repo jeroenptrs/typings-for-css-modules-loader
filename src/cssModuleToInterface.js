@@ -91,9 +91,11 @@ export const generateGenericExportInterface = (cssModuleKeys, filename, indent) 
   const interfaceProperties = cssModuleToTypescriptInterfaceProperties(cssModuleKeys, indent);
   return (
 `export interface ${interfaceName} {
+[name:string]:string;
 ${interfaceProperties}
 }
 
-export const locals: ${interfaceName};
+declare const styles: ${interfaceName};
+export default styles;
 `);
 };
